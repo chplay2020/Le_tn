@@ -29,9 +29,9 @@ Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm ru
 ## Phase 3: Admin
 - [x] **T8 Admin auth** (M) — `/admin/login`, cookie HttpOnly ký, middleware bảo vệ `/admin` + `/api/admin`, rate-limit.
   AC: chưa đăng nhập → 401/redirect; sai mật khẩu bị giới hạn. Deps: T2.
-- [ ] **T9 Quản lý khách** (M) — thêm/sửa/xóa, tier, lời nhắn riêng, copy link + copy tin nhắn mời.
+- [x] **T9 Quản lý khách** (M) — thêm/sửa/xóa, tier, lời nhắn riêng, copy link + copy tin nhắn mời.
   AC: link tạo ra mở được thiệp đúng tên. Deps: T8, T4.
-- [ ] **T10 Danh sách RSVP + nhập hàng loạt + CSV** (M) — lọc theo tier/trạng thái, thống kê, dán danh sách tạo nhiều link, xuất CSV.
+- [x] **T10 Danh sách RSVP + nhập hàng loạt + CSV** (M) — lọc theo tier/trạng thái, thống kê, dán danh sách tạo nhiều link, xuất CSV.
   AC: CSV đúng cột (tên, loại, trạng thái, lời chúc, thời điểm); chống CSV injection. Deps: T9, T6.
 ### Checkpoint 3
 - [ ] Đóng vòng: tạo khách → gửi link → khách RSVP → admin thấy.
