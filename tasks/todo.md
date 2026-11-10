@@ -12,10 +12,10 @@ Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm ru
 - [x] **T3 Invite API (đọc)** (S) — `GET /api/invite/[code]` trả đúng dữ liệu của chính khách; mã sai → 404 chung.
   AC: test: không trả field khách khác/không lộ id nội bộ. Deps: T2.
 ### Checkpoint 1
-- [ ] Test/build pass; lấy được 1 khách mẫu qua API.
+- [x] Test/build pass; lấy được 1 khách mẫu qua API.
 
 ## Phase 2: Core guest experience
-- [ ] **T4 Trang thiệp cơ bản theo tier** (M) — `/i/[code]`: chào đúng tên, ngày giờ, địa điểm, nút Google Maps, theme + giọng văn theo tier, 404 thân thiện.
+- [x] **T4 Trang thiệp cơ bản theo tier** (M) — `/i/[code]`: chào đúng tên, ngày giờ, địa điểm, nút Google Maps, theme + giọng văn theo tier, 404 thân thiện.
   AC: 3 tier hiển thị khác nhau; mobile 320px không scroll ngang. Deps: T3.
 - [ ] **T5 Phong bì mở thiệp + animation** (M) — màn mở, hiệu ứng vào, cánh hoa (special), confetti (bestie), reduced-motion.
   AC: reduced-motion tắt animation nặng; không giật. Deps: T4.
