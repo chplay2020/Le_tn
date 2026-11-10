@@ -17,9 +17,9 @@ Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm ru
 ## Phase 2: Core guest experience
 - [x] **T4 Trang thiệp cơ bản theo tier** (M) — `/i/[code]`: chào đúng tên, ngày giờ, địa điểm, nút Google Maps, theme + giọng văn theo tier, 404 thân thiện.
   AC: 3 tier hiển thị khác nhau; mobile 320px không scroll ngang. Deps: T3.
-- [ ] **T5 Phong bì mở thiệp + animation** (M) — màn mở, hiệu ứng vào, cánh hoa (special), confetti (bestie), reduced-motion.
+- [x] **T5 Phong bì mở thiệp + animation** (M) — màn mở, hiệu ứng vào, cánh hoa (special), confetti (bestie), reduced-motion.
   AC: reduced-motion tắt animation nặng; không giật. Deps: T4.
-- [ ] **T6 RSVP (tạo/đổi ý/khóa)** (M) — `PUT /api/invite/[code]/rsvp` + form Tham dự/Không + lời chúc; khóa sau 23:59 17/11 GMT+7; rate-limit; validate Zod.
+- [x] **T6 RSVP (tạo/đổi ý/khóa)** (M) — `PUT /api/invite/[code]/rsvp` + form Tham dự/Không + lời chúc; khóa sau 23:59 17/11 GMT+7; rate-limit; validate Zod.
   AC: test tạo, đổi ý, bị chặn sau hạn, wish >300 ký tự bị từ chối, chặn ghi vào khách khác. Deps: T4.
 - [ ] **T7 Lưu vào lịch + đếm ngược** (S) — `.ics` + link Google Calendar; countdown.
   AC: test `.ics` đúng 10:30 18/11/2026 GMT+7. Deps: T4.
