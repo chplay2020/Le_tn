@@ -40,10 +40,10 @@ Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm ru
 - [x] **T11 Settings admin: hạn RSVP, lưu ý, after-party** (S) — sửa ở admin; trống thì ẩn; after-party chỉ `bestie`. Deps: T10.
 - [x] **T12 Gallery + upload ảnh** (M) — Supabase Storage, upload/xóa/sắp xếp ở admin, hiển thị trên thiệp, ẩn khi trống. Deps: T11.
 - [x] **T13 Nhạc nền bật/tắt** (S) — mặc định tắt, ẩn nếu chưa có file. Deps: T4.
-- [ ] **T14 Polish thiết kế** (M) — typography, khoảng trắng, theme 3 tier hoàn chỉnh, favicon/OG image (xem trước link khi gửi Zalo/Messenger).
+- [x] **T14 Polish thiết kế** (M) — typography, khoảng trắng, theme 3 tier hoàn chỉnh, favicon/OG image (xem trước link khi gửi Zalo/Messenger).
   AC: chủ thiệp duyệt giao diện. Deps: T5–T13.
 ### Checkpoint 4 → hết session 2 (Build)
-- [ ] Mọi AC của T1–T14 đạt; chủ thiệp duyệt giao diện.
+- [x] Mọi AC của T1–T14 đạt (chờ chủ thiệp duyệt giao diện); chủ thiệp duyệt giao diện.
 
 ## Phase 5: Review & Test (Session 3)
 - [ ] **T15 Code review 5 trục** (`code-review-and-quality`), sửa lỗi.

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-:root { --font-serif: "Playfair Display", Georgia, "Times New Roman", serif; --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+:root { --font-serif: var(--font-serif-load), "Playfair Display", Georgia, "Times New Roman", serif; --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
 body { font-family: var(--font-sans); margin: 0; overflow-x: hidden; }
 .font-serif-d { font-family: var(--font-serif); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
