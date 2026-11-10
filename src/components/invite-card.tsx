@@ -3,9 +3,9 @@ import { Countdown } from "@/components/countdown";
 import { googleCalendarUrl } from "@/lib/ics";
 import { eventDateText, eventTimeText } from "@/lib/format";
 
-type Props = { name: string; tier: Tier; message: string | null };
+type Props = { name: string; tier: Tier; message: string | null; notes?: string | null; afterParty?: string | null };
 
-export function InviteCard({ name, tier, message }: Props) {
+export function InviteCard({ name, tier, message, notes, afterParty }: Props) {
   const t = THEMES[tier];
   return (
     <main data-tier={tier} style={{ background: t.bg, color: t.fg }} className="min-h-screen flex items-center justify-center px-4 py-10">
@@ -28,6 +28,8 @@ export function InviteCard({ name, tier, message }: Props) {
           <a href="/api/calendar" style={{ borderColor: t.accent }} className="rounded-full border px-5 py-3 min-h-11">Lưu vào lịch (.ics)</a>
           <a href={googleCalendarUrl()} target="_blank" rel="noopener noreferrer" style={{ borderColor: t.accent }} className="rounded-full border px-5 py-3 min-h-11">Google Calendar</a>
         </div>
+        {notes && (<section className="mt-8 text-left"><h2 className="text-xs uppercase tracking-widest opacity-70">Lưu ý</h2><p className="mt-1 whitespace-pre-line">{notes}</p></section>)}
+        {tier === "bestie" && afterParty && (<section style={{ borderColor: t.accent }} className="mt-8 rounded-xl border p-4 text-left"><h2 className="font-serif-d text-lg">After-party</h2><p className="mt-1 whitespace-pre-line">{afterParty}</p></section>)}
         {message && (<p style={{ borderColor: t.accent }} className="mt-8 border-l-2 pl-4 text-left italic whitespace-pre-line">{message}</p>)}
         <p className="mt-8 font-serif-d">{t.cta}</p>
       </article>

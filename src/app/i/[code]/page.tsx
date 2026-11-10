@@ -16,12 +16,13 @@ export default async function InvitePage({ params }: { params: Promise<{ code: s
   let invite = null;
   try { invite = await loadInvite(code); } catch { /* treated as unavailable */ }
   if (!invite) return <NotFoundCard />;
-  let deadline = parseDeadline(undefined);
-  try { deadline = parseDeadline((await getSettings()).rsvp_deadline); } catch { /* default deadline */ }
+  let settings: Record<string, string> = {};
+  try { settings = await getSettings(); } catch { /* defaults */ }
+  const deadline = parseDeadline(settings.rsvp_deadline);
   const closed = !isRsvpOpen(new Date(), deadline);
   return (
     <InviteExperience name={invite.name} tier={invite.tier}>
-      <InviteCard name={invite.name} tier={invite.tier} message={invite.message} />
+      <InviteCard name={invite.name} tier={invite.tier} message={invite.message} notes={settings.notes} afterParty={invite.tier === "bestie" ? settings.after_party : null} />
       <div style={{ background: THEMES[invite.tier].bg }} className="px-4 pb-1"><RsvpForm code={code} tier={invite.tier} closed={closed} initial={invite.rsvp && { status: invite.rsvp.status, wish: invite.rsvp.wish }} /></div>
     </InviteExperience>
   );

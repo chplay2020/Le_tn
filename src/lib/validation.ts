@@ -14,3 +14,9 @@ export const guestInput = z.object({
 }).strict();
 export const guestPatch = guestInput.partial().strict();
 export const bulkInput = z.object({ text: z.string().max(20000), tier: tierEnum }).strict();
+
+export const settingsInput = z.object({
+  rsvpDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((s) => !Number.isNaN(Date.parse(s))).nullish(),
+  notes: z.string().trim().max(1000).nullish(),
+  afterParty: z.string().trim().max(1000).nullish(),
+}).strict();

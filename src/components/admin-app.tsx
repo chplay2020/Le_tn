@@ -14,7 +14,7 @@ async function api(url: string, method: string, body?: unknown) {
   return { ok: r.ok, data: await r.json().catch(() => null) };
 }
 
-export function AdminApp({ initial }: { initial: AdminGuest[] }) {
+export function AdminApp({ initial, settings }: { initial: AdminGuest[]; settings: React.ReactNode }) {
   const router = useRouter();
   const [guests, setGuests] = useState(initial);
   const [fTier, setFTier] = useState("");
@@ -80,6 +80,8 @@ export function AdminApp({ initial }: { initial: AdminGuest[] }) {
             <button type="button" className={btn} onClick={addBulk} disabled={!bulk.text.trim()}>Tạo link hàng loạt</button>
           </div></details>
       </section>
+
+      {settings}
 
       <section className="space-y-3">
         <div className="flex flex-wrap gap-2 items-center">
