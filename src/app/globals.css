@@ -3,3 +3,5 @@
 body { font-family: var(--font-sans); margin: 0; overflow-x: hidden; }
 .font-serif-d { font-family: var(--font-serif); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+.petal { position: absolute; top: -5%; border-radius: 80% 0 80% 0; opacity: 0; animation: fall linear infinite; will-change: transform, opacity; }
+@keyframes fall { 0% { transform: translate3d(0,0,0) rotate(0); opacity: 0; } 10% { opacity: .7; } 100% { transform: translate3d(40px,110vh,0) rotate(360deg); opacity: 0; } }
