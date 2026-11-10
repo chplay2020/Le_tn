@@ -6,6 +6,8 @@ import { RsvpForm } from "@/components/rsvp-form";
 import { getSettings, parseDeadline } from "@/lib/settings";
 import { isRsvpOpen } from "@/lib/rsvp";
 import { THEMES } from "@/config/event";
+import { Gallery } from "@/components/gallery";
+import { listGallery } from "@/lib/gallery";
 import { NotFoundCard } from "@/components/not-found-card";
 
 export const dynamic = "force-dynamic";
@@ -18,12 +20,17 @@ export default async function InvitePage({ params }: { params: Promise<{ code: s
   if (!invite) return <NotFoundCard />;
   let settings: Record<string, string> = {};
   try { settings = await getSettings(); } catch { /* defaults */ }
+  let photos: string[] = [];
+  try { photos = (await listGallery()).map((g) => g.url); } catch { /* hide gallery */ }
   const deadline = parseDeadline(settings.rsvp_deadline);
   const closed = !isRsvpOpen(new Date(), deadline);
   return (
     <InviteExperience name={invite.name} tier={invite.tier}>
       <InviteCard name={invite.name} tier={invite.tier} message={invite.message} notes={settings.notes} afterParty={invite.tier === "bestie" ? settings.after_party : null} />
-      <div style={{ background: THEMES[invite.tier].bg }} className="px-4 pb-1"><RsvpForm code={code} tier={invite.tier} closed={closed} initial={invite.rsvp && { status: invite.rsvp.status, wish: invite.rsvp.wish }} /></div>
+      <div style={{ background: THEMES[invite.tier].bg, color: THEMES[invite.tier].fg }}>
+        <Gallery urls={photos} />
+        <div className="px-4 pb-1"><RsvpForm code={code} tier={invite.tier} closed={closed} initial={invite.rsvp && { status: invite.rsvp.status, wish: invite.rsvp.wish }} /></div>
+      </div>
     </InviteExperience>
   );
 }
