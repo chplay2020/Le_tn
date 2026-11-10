@@ -9,7 +9,7 @@ Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm ru
   AC: `npm run dev/build/test` chạy; không có secret trong repo. Deps: không.
 - [x] **T2 DB schema + code generator** (S) — migration `guests/rsvps/gallery/settings`, RLS bật, `lib/code.ts` (8 ký tự base62 CSPRNG).
   AC: test sinh mã độc nhất, đúng độ dài/ký tự; migration áp dụng được. Deps: T1.
-- [ ] **T3 Invite API (đọc)** (S) — `GET /api/invite/[code]` trả đúng dữ liệu của chính khách; mã sai → 404 chung.
+- [x] **T3 Invite API (đọc)** (S) — `GET /api/invite/[code]` trả đúng dữ liệu của chính khách; mã sai → 404 chung.
   AC: test: không trả field khách khác/không lộ id nội bộ. Deps: T2.
 ### Checkpoint 1
 - [ ] Test/build pass; lấy được 1 khách mẫu qua API.
