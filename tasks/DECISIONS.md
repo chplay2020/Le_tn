@@ -1,0 +1,11 @@
+# Quyết định trong lúc build
+- Tailwind v4 (`@tailwindcss/postcss`), ESLint 9 flat config; thêm `@supabase/supabase-js` (cần để truy cập DB/Storage từ server). Playwright để Session 3 (T17).
+- Rate-limit là in-memory theo từng instance serverless (best-effort, đủ cho quy mô thiệp). Muốn chặt hơn thì chuyển sang Upstash/DB (cần hỏi, thêm dependency).
+- Admin: `PASS_ADMIN` đọc từ env, so sánh sha256 + `timingSafeEqual`; cookie JWT HS256 (jose) 7 ngày; `SESSION_SECRET` tự sinh ngẫu nhiên, lưu `.env` + Vercel. Middleware kiểm tra Origin cho mutation `/api/admin`, mỗi route lại kiểm tra cookie lần nữa.
+- Hạn RSVP trong admin chọn theo ngày, lưu `YYYY-MM-DDT23:59:59+07:00`.
+- Upload ảnh tối đa 4MB (giới hạn body của Vercel), chỉ JPG/PNG/WebP, kiểm tra magic bytes; bucket `gallery` public (ảnh thiệp vốn công khai với người có link).
+- Nhạc: đặt `EVENT.musicSrc` trong `src/config/event.ts` (ví dụ `/music.mp3` + file trong `public/`); trống thì ẩn nút.
+- Link sai trả HTTP 404 với trang thân thiện. Lỗi DB khi tải thiệp cũng hiển thị 404 (không lộ chi tiết).
+- Mỗi trang `/i/[code]` render động, `Cache-Control: no-store` cho API khách.
+- Giờ kết thúc sự kiện trong `.ics` đặt tạm 13:00 (sửa `EVENT.endsAt`).
+- Lời nhắn mời (nút "Copy tin nhắn mời") là mẫu theo tier trong `src/lib/invite-message.ts`, sửa tùy ý.

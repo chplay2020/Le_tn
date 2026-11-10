@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { InviteCard } from "@/components/invite-card";
 import { loadInvite } from "@/lib/invite-db";
 import { InviteExperience } from "@/components/invite-experience";
@@ -8,7 +9,6 @@ import { isRsvpOpen } from "@/lib/rsvp";
 import { THEMES } from "@/config/event";
 import { Gallery } from "@/components/gallery";
 import { listGallery } from "@/lib/gallery";
-import { NotFoundCard } from "@/components/not-found-card";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Thiệp mời tốt nghiệp – Trần Thành", robots: { index: false, follow: false } };
@@ -17,7 +17,7 @@ export default async function InvitePage({ params }: { params: Promise<{ code: s
   const { code } = await params;
   let invite = null;
   try { invite = await loadInvite(code); } catch { /* treated as unavailable */ }
-  if (!invite) return <NotFoundCard />;
+  if (!invite) notFound();
   let settings: Record<string, string> = {};
   try { settings = await getSettings(); } catch { /* defaults */ }
   let photos: string[] = [];
