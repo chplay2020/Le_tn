@@ -5,7 +5,7 @@ Trạng thái plan: **ĐÃ DUYỆT**.
 Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm run typecheck && npm test` trước commit. Kích thước S/M.
 
 ## Phase 1: Foundation
-- [ ] **T1 Scaffold + config + docs setup** (S) — Next.js/TS/Tailwind/Vitest, `src/config/event.ts` (thông tin sự kiện + theme 3 tier), `.env.example`, `docs/SETUP.md` (Supabase/Vercel).
+- [x] **T1 Scaffold + config + docs setup** (S) — Next.js/TS/Tailwind/Vitest, `src/config/event.ts` (thông tin sự kiện + theme 3 tier), `.env.example`, `docs/SETUP.md` (Supabase/Vercel).
   AC: `npm run dev/build/test` chạy; không có secret trong repo. Deps: không.
 - [ ] **T2 DB schema + code generator** (S) — migration `guests/rsvps/gallery/settings`, RLS bật, `lib/code.ts` (8 ký tự base62 CSPRNG).
   AC: test sinh mã độc nhất, đúng độ dài/ký tự; migration áp dụng được. Deps: T1.
