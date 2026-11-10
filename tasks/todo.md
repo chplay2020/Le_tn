@@ -21,10 +21,10 @@ Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm ru
   AC: reduced-motion tắt animation nặng; không giật. Deps: T4.
 - [x] **T6 RSVP (tạo/đổi ý/khóa)** (M) — `PUT /api/invite/[code]/rsvp` + form Tham dự/Không + lời chúc; khóa sau 23:59 17/11 GMT+7; rate-limit; validate Zod.
   AC: test tạo, đổi ý, bị chặn sau hạn, wish >300 ký tự bị từ chối, chặn ghi vào khách khác. Deps: T4.
-- [ ] **T7 Lưu vào lịch + đếm ngược** (S) — `.ics` + link Google Calendar; countdown.
+- [x] **T7 Lưu vào lịch + đếm ngược** (S) — `.ics` + link Google Calendar; countdown.
   AC: test `.ics` đúng 10:30 18/11/2026 GMT+7. Deps: T4.
 ### Checkpoint 2
-- [ ] Luồng khách end-to-end chạy; review với chủ thiệp (giao diện).
+- [x] Luồng khách end-to-end chạy; review với chủ thiệp (giao diện).
 
 ## Phase 3: Admin
 - [ ] **T8 Admin auth** (M) — `/admin/login`, cookie HttpOnly ký, middleware bảo vệ `/admin` + `/api/admin`, rate-limit.

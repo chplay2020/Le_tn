@@ -1,4 +1,6 @@
 import { EVENT, THEMES, type Tier } from "@/config/event";
+import { Countdown } from "@/components/countdown";
+import { googleCalendarUrl } from "@/lib/ics";
 import { eventDateText, eventTimeText } from "@/lib/format";
 
 type Props = { name: string; tier: Tier; message: string | null };
@@ -21,6 +23,11 @@ export function InviteCard({ name, tier, message }: Props) {
         </dl>
         <a href={EVENT.mapUrl} target="_blank" rel="noopener noreferrer" style={{ borderColor: t.accent }}
           className="mt-6 inline-block rounded-full border px-6 py-3 text-sm min-h-11">Xem bản đồ</a>
+        <div className="mt-8"><Countdown /></div>
+        <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+          <a href="/api/calendar" style={{ borderColor: t.accent }} className="rounded-full border px-5 py-3 min-h-11">Lưu vào lịch (.ics)</a>
+          <a href={googleCalendarUrl()} target="_blank" rel="noopener noreferrer" style={{ borderColor: t.accent }} className="rounded-full border px-5 py-3 min-h-11">Google Calendar</a>
+        </div>
         {message && (<p style={{ borderColor: t.accent }} className="mt-8 border-l-2 pl-4 text-left italic whitespace-pre-line">{message}</p>)}
         <p className="mt-8 font-serif-d">{t.cta}</p>
       </article>
