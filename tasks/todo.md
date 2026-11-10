@@ -7,7 +7,7 @@ Quy ước: mỗi task = 1 commit; TDD cho logic; chạy `npm run lint && npm ru
 ## Phase 1: Foundation
 - [x] **T1 Scaffold + config + docs setup** (S) — Next.js/TS/Tailwind/Vitest, `src/config/event.ts` (thông tin sự kiện + theme 3 tier), `.env.example`, `docs/SETUP.md` (Supabase/Vercel).
   AC: `npm run dev/build/test` chạy; không có secret trong repo. Deps: không.
-- [ ] **T2 DB schema + code generator** (S) — migration `guests/rsvps/gallery/settings`, RLS bật, `lib/code.ts` (8 ký tự base62 CSPRNG).
+- [x] **T2 DB schema + code generator** (S) — migration `guests/rsvps/gallery/settings`, RLS bật, `lib/code.ts` (8 ký tự base62 CSPRNG).
   AC: test sinh mã độc nhất, đúng độ dài/ký tự; migration áp dụng được. Deps: T1.
 - [ ] **T3 Invite API (đọc)** (S) — `GET /api/invite/[code]` trả đúng dữ liệu của chính khách; mã sai → 404 chung.
   AC: test: không trả field khách khác/không lộ id nội bộ. Deps: T2.
