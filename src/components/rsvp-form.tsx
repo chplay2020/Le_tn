@@ -35,7 +35,7 @@ export function RsvpForm({ code, tier, initial, closed }: Props) {
   const opt = (v: Status, text: string) => (
     <button type="button" aria-pressed={status === v} disabled={closed || busy} onClick={() => setStatus(v)}
       style={status === v ? { background: t.accent, color: t.card, borderColor: t.accent } : { borderColor: t.accent }}
-      className="flex-1 min-h-12 rounded-full border px-2 text-sm leading-tight disabled:opacity-60">{text}</button>
+      className="flex-1 min-h-12 rounded-full border px-2 text-[13px] whitespace-nowrap disabled:opacity-60">{text}</button>
   );
 
   return (

@@ -62,7 +62,7 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
           <div className="relative px-6 pb-10 pt-2 text-center md:px-10 md:py-12 md:self-center">
             <Sparkle className="right-6 top-0 h-6 w-6 md:right-8" color={t.accent} /><Sparkle className="left-4 top-24 h-4 w-4" color={t.accent} delay="1.2s" />
             <p className="line text-xs font-medium uppercase tracking-[0.35em]" style={{ color: t.accent }}>Thiệp mời tốt nghiệp</p>
-            <h1 className="mt-3 leading-[0.95]">
+            <h1 className="mt-6 leading-[0.95]">
               <span className="line font-script block text-5xl md:text-6xl" style={{ color: t.accent }}>Graduation</span>
               <span className="line font-script block text-5xl md:text-6xl" style={{ color: t.accent }}>Ceremony of</span>
               <span className="line font-script mt-1 block text-6xl md:text-7xl">{EVENT.host}</span>
