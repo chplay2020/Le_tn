@@ -59,7 +59,7 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
             </div>
           </div>
 
-          <div className="relative px-6 pb-10 pt-8 text-center md:px-10 md:py-12 md:self-center">
+          <div className="relative px-6 pb-2 pt-8 text-center md:px-10 md:pb-6 md:pt-12 md:self-center">
             <Sparkle className="right-6 top-0 h-6 w-6 md:right-8" color={t.accent} /><Sparkle className="left-4 top-24 h-4 w-4" color={t.accent} delay="1.2s" />
             <p className="line text-xs font-medium uppercase tracking-[0.35em]" style={{ color: t.accent }}>Thiệp mời tốt nghiệp</p>
             <h1 className="mt-6 leading-[0.95]">
@@ -98,11 +98,16 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
               <a href="/api/calendar" style={{ borderColor: t.accent }} className={pill}>Lưu vào lịch (.ics)</a>
               <a href={googleCalendarUrl()} target="_blank" rel="noopener noreferrer" style={{ borderColor: t.accent }} className={pill}>Google Calendar</a>
             </div>
-            {notes && <section className="line mt-8 text-left"><h2 className="text-xs uppercase tracking-widest opacity-70">Lưu ý</h2><p className="mt-1 whitespace-pre-line">{notes}</p></section>}
+          </div>
+
+          <div className="px-6 pb-10 text-center md:col-span-2 md:px-10 md:pb-12">
+            <div className="mx-auto max-w-xl">
+            {notes && <section className="line mt-8 text-center"><h2 className="text-xs uppercase tracking-widest opacity-70">Lưu ý</h2><p className="mt-1 whitespace-pre-line">{notes}</p></section>}
             {tier === "bestie" && afterParty && <section style={{ borderColor: t.accent }} className="line mt-8 rounded-xl border p-4 text-left"><h2 className="font-serif-d text-lg">After-party</h2><p className="mt-1 whitespace-pre-line">{afterParty}</p></section>}
             {message && <p style={{ borderColor: t.accent }} className="line mt-8 border-l-2 pl-4 text-left italic whitespace-pre-line">{message}</p>}
             <p className="line font-serif-d mt-8">{t.cta}</p>
             <div className="line mt-8 text-left">{rsvp}</div>
+            </div>
           </div>
         </article>
         {extra}
