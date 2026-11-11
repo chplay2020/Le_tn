@@ -3,3 +3,6 @@
 body { font-family: var(--font-sans); margin: 0; overflow-x: hidden; }
 .font-serif-d { font-family: var(--font-serif); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+.font-script { font-family: var(--font-script-load), "Brush Script MT", cursive; font-weight: 400; }
+.sparkle { position: absolute; animation: twinkle 3.2s ease-in-out infinite; }
+@keyframes twinkle { 0%,100% { opacity: .25; transform: scale(.7) rotate(0); } 50% { opacity: 1; transform: scale(1.1) rotate(20deg); } }
