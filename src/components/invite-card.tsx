@@ -24,8 +24,8 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
   useLayoutEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
-      gsap.timeline({ defaults: { ease: "power3.out" } })
-        .from(".card", { scale: 0.9, opacity: 0, duration: 0.9 })
+      gsap.timeline({ delay: 0.5, defaults: { ease: "power3.out" } })
+        .from(".card", { scale: 0.8, opacity: 0, duration: 1, ease: "back.out(1.4)" })
         .from(".frame", { y: -70, opacity: 0, duration: 0.8 }, "-=0.45")
         .from(".line", { y: 28, opacity: 0, duration: 0.7, stagger: 0.12 }, "-=0.35");
     }, root);
