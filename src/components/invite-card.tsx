@@ -14,6 +14,18 @@ type Props = {
   portrait?: string | null; rsvp: ReactNode; extra?: ReactNode;
 };
 
+function InfoRow({ icon, label, color, children }: { icon: ReactNode; label: string; color: string; children: ReactNode }) {
+  return (
+    <div className="flex flex-col items-center gap-1.5">
+      <span className="grid h-9 w-9 place-items-center rounded-full border" style={{ borderColor: color, color }}>
+        <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>{icon}</svg>
+      </span>
+      <span className="text-[11px] font-medium uppercase tracking-[0.35em]" style={{ color }}>{label}</span>
+      {children}
+    </div>
+  );
+}
+
 function Sparkle({ className, color, delay = "0s" }: { className: string; color: string; delay?: string }) {
   return (<svg aria-hidden viewBox="0 0 24 24" className={`sparkle ${className}`} style={{ animationDelay: delay, fill: color }}><path d="M12 0c.8 6.6 5.4 11.2 12 12-6.6.8-11.2 5.4-12 12-.8-6.6-5.4-11.2-12-12C6.6 11.2 11.2 6.6 12 0z" /></svg>);
 }
@@ -91,12 +103,21 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
               <div className="flex-1 border-y py-1 text-xs font-medium tracking-[0.3em]" style={{ borderColor: t.accent }}>{eventParts().year}</div>
             </div>
             <p className="line mt-4 text-lg tracking-widest">{eventTimeText()}</p>
-            <p className="line mt-5 text-sm"><span className="underline underline-offset-4">Địa điểm:</span> <span className="uppercase tracking-wider">{EVENT.venue}</span></p>
-            {EVENT.contacts.length > 0 && (
-              <p className="line mt-3 text-sm"><span className="underline underline-offset-4">Liên hệ:</span>{" "}
-                {EVENT.contacts.map((c, i) => (<span key={c.phone}>{i > 0 && " · "}<a href={`tel:${c.phone}`} className="tracking-wide">{c.phone.replace(/(\d{4})(\d{3})(\d{3,})/, "$1 $2 $3")} ({c.name})</a></span>))}
-              </p>
-            )}
+            <div className="line mt-7 space-y-5">
+              <InfoRow icon={<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21zm0-8.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />} label="Địa điểm" color={t.accent}>
+                <a href={EVENT.mapUrl} target="_blank" rel="noopener noreferrer" className="font-serif-d text-2xl leading-snug">{EVENT.venue}</a>
+              </InfoRow>
+              {EVENT.contacts.length > 0 && (
+                <InfoRow icon={<path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.4.55 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.3.55 3.4a1 1 0 0 1-.25 1z" />} label="Liên hệ" color={t.accent}>
+                  <span className="flex flex-wrap justify-center gap-2">
+                    {EVENT.contacts.map((c) => (
+                      <a key={c.phone} href={`tel:${c.phone}`} style={{ borderColor: t.accent }} className="rounded-full border px-4 py-2 min-h-11 text-base tracking-wide">
+                        {c.phone.replace(/(\d{4})(\d{3})(\d{3,})/, "$1 $2 $3")} <span className="opacity-70">({c.name})</span>
+                      </a>))}
+                  </span>
+                </InfoRow>
+              )}
+            </div>
             <div className="line mt-8"><Countdown /></div>
             <div className="line mt-6 flex flex-wrap justify-center gap-3">
               <a href={EVENT.mapUrl} target="_blank" rel="noopener noreferrer" style={{ background: t.accent, color: t.bg, borderColor: t.accent }} className={`${pill} font-medium`}>Xem bản đồ</a>
