@@ -41,7 +41,7 @@ export function RsvpForm({ code, tier, initial, closed }: Props) {
 
   return (
     <section aria-labelledby="rsvp-h" style={{ background: t.card, borderColor: t.accent, color: t.fg }}
-      className="mx-auto w-full max-w-md border rounded-2xl px-6 py-8 mb-10">
+      className="w-full border rounded-2xl px-6 py-8">
       <h2 id="rsvp-h" className="font-serif-d text-xl text-center">Bạn sẽ đến chứ?</h2>
       {label && <p role="status" className="mt-2 text-center text-sm opacity-80">{label}</p>}
       {closed && <p className="mt-2 text-center text-sm">Đã hết hạn trả lời{saved ? "." : " – bạn vẫn có thể liên hệ trực tiếp với mình nhé."}</p>}

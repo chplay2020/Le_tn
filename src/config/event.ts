@@ -14,24 +14,24 @@ export const EVENT = {
 
 export const THEMES: Record<Tier, {
   label: string; greeting: (name: string) => string; intro: string; cta: string;
-  bg: string; fg: string; accent: string; card: string; effect: "petals" | "none" | "confetti";
+  bg: string; fg: string; accent: string; card: string; effect: "none" | "confetti";
 }> = {
   special: {
     label: "special", greeting: (n) => `Gửi ${n},`,
     intro: "Có một ngày mình muốn bạn ở đó cùng mình.",
     cta: "Mình rất mong được gặp bạn.",
-    bg: "#fbeaea", fg: "#4a3236", accent: "#c9a24a", card: "#fff7f5", effect: "petals",
+    bg: "#0e1a38", fg: "#ffffff", accent: "#e8c4a0", card: "#16254d", effect: "none",
   },
   friend: {
     label: "friend", greeting: (n) => `Chào ${n},`,
     intro: "Mình rất vui được mời bạn đến dự lễ tốt nghiệp của mình.",
     cta: "Hy vọng bạn sẽ đến chung vui cùng mình.",
-    bg: "#f7f1e3", fg: "#3b3326", accent: "#b8903a", card: "#fffdf7", effect: "none",
+    bg: "#0b1b3a", fg: "#ffffff", accent: "#d4af37", card: "#11264f", effect: "none",
   },
   bestie: {
     label: "bestie", greeting: (n) => `Ê ${n}!`,
     intro: "Tốt nghiệp rồi mày ơi, không có mặt là mất vui lắm đó.",
     cta: "Đến đông đủ nha, tính hết rồi đó.",
-    bg: "#14110d", fg: "#f3ead6", accent: "#e0b84f", card: "#201b14", effect: "confetti",
+    bg: "#070f22", fg: "#ffffff", accent: "#f2c94c", card: "#0d1a38", effect: "confetti",
   },
 };

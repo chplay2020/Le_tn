@@ -6,7 +6,6 @@ import { InviteExperience } from "@/components/invite-experience";
 import { RsvpForm } from "@/components/rsvp-form";
 import { getSettings, parseDeadline } from "@/lib/settings";
 import { isRsvpOpen } from "@/lib/rsvp";
-import { THEMES } from "@/config/event";
 import { Gallery } from "@/components/gallery";
 import { listGallery } from "@/lib/gallery";
 
@@ -26,11 +25,12 @@ export default async function InvitePage({ params }: { params: Promise<{ code: s
   const closed = !isRsvpOpen(new Date(), deadline);
   return (
     <InviteExperience name={invite.name} tier={invite.tier}>
-      <InviteCard name={invite.name} tier={invite.tier} message={invite.message} notes={settings.notes} afterParty={invite.tier === "bestie" ? settings.after_party : null} />
-      <div style={{ background: THEMES[invite.tier].bg, color: THEMES[invite.tier].fg }}>
-        <Gallery urls={photos} />
-        <div className="px-4 pb-1"><RsvpForm code={code} tier={invite.tier} closed={closed} initial={invite.rsvp && { status: invite.rsvp.status, wish: invite.rsvp.wish }} /></div>
-      </div>
+      <InviteCard
+        name={invite.name} tier={invite.tier} message={invite.message} notes={settings.notes}
+        afterParty={invite.tier === "bestie" ? settings.after_party : null} portrait={photos[0] ?? null}
+        rsvp={<RsvpForm code={code} tier={invite.tier} closed={closed} initial={invite.rsvp && { status: invite.rsvp.status, wish: invite.rsvp.wish }} />}
+        extra={<div className="mt-8 w-full"><Gallery urls={photos.slice(1)} /></div>}
+      />
     </InviteExperience>
   );
 }
