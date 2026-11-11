@@ -6,3 +6,5 @@ body { font-family: var(--font-sans); margin: 0; overflow-x: hidden; }
 .font-script { font-family: var(--font-script-load), "Brush Script MT", cursive; font-weight: 400; }
 .sparkle { position: absolute; animation: twinkle 3.2s ease-in-out infinite; }
 @keyframes twinkle { 0%,100% { opacity: .25; transform: scale(.7) rotate(0); } 50% { opacity: 1; transform: scale(1.1) rotate(20deg); } }
+.ribbon { transform-box: fill-box; transform-origin: center; animation: sway ease-in-out infinite alternate; will-change: transform; }
+@keyframes sway { from { transform: translateX(-3%) scaleY(1); } to { transform: translateX(3%) scaleY(1.18); } }

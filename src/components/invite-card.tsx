@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, type ReactNode } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { EVENT, THEMES, type Tier } from "@/config/event";
+import { Backdrop } from "@/components/backdrop";
 import { Countdown } from "@/components/countdown";
 import { Particles } from "@/components/particles";
 import { googleCalendarUrl } from "@/lib/ics";
@@ -35,11 +36,7 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
   const pill = "rounded-full border px-5 py-3 min-h-11 text-sm";
   return (
     <div ref={root} data-tier={tier} style={{ background: t.bg, color: t.fg }} className="relative min-h-dvh overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        {portrait && <div className="absolute inset-0 scale-125 opacity-25 blur-3xl" style={{ backgroundImage: `url(${portrait})`, backgroundSize: "cover", backgroundPosition: "center" }} />}
-        <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full opacity-20 blur-3xl" style={{ background: t.accent }} />
-        <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full opacity-15 blur-3xl" style={{ background: t.accent }} />
-      </div>
+      <Backdrop accent={t.accent} bg={t.bg} portrait={portrait} />
       <Particles color={t.accent} />
 
       <main className="relative z-10 grid place-items-center px-4 py-8 md:py-12">

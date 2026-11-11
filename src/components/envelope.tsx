@@ -2,6 +2,7 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { THEMES, type Tier } from "@/config/event";
+import { Backdrop } from "@/components/backdrop";
 import { Particles } from "@/components/particles";
 
 type Props = { name: string; tier: Tier; onOpen: () => void; onDone: () => void };
@@ -72,6 +73,7 @@ export function Envelope({ name, tier, onOpen, onDone }: Props) {
   const GOLD_DARK = `color-mix(in srgb, ${t.accent} 70%, #000)`;
   return (
     <div ref={root} style={{ background: t.bg, color: t.fg }} className="fixed inset-0 z-50 overflow-hidden">
+      <Backdrop accent={t.accent} bg={t.bg} />
       <Particles color={t.accent} />
       <div className="stage relative z-10 flex h-full flex-col items-center justify-center gap-10 px-4 text-center">
         <p className="env-fade font-serif-d text-xl envelope-all" style={{ color: t.accent }}>{t.greeting(name)}</p>
