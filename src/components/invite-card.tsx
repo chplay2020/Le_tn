@@ -69,7 +69,7 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
             </h1>
             <p className="line mt-2 text-sm tracking-wide opacity-80">{EVENT.school}</p>
             <div style={{ background: t.accent }} className="line mx-auto my-6 h-px w-16" aria-hidden />
-            <p className="line text-sm font-medium uppercase tracking-[0.4em]" style={{ color: t.accent }}>Thân mời</p>
+            <p className="line text-sm font-medium tracking-[0.35em]" style={{ color: t.accent }}>{t.invitee}</p>
             <p className="line font-serif-d mx-auto mt-2 max-w-xs rounded-xl bg-white/10 px-4 py-3 text-3xl uppercase tracking-[0.12em] break-words">{name}</p>
             <p className="line mt-4 leading-relaxed opacity-90">{t.intro}</p>
             <div className="line mt-8 flex items-center justify-center gap-4" aria-label={`${eventParts().weekday}, ngày ${eventParts().day} tháng ${eventParts().month} năm ${eventParts().year}`}>

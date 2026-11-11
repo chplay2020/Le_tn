@@ -9,3 +9,10 @@ describe("event config", () => {
     expect(new Set(Object.values(THEMES).map((t) => t.bg)).size).toBe(3);
   });
 });
+
+describe("tier distinction", () => {
+  it("each tier has its own accent and invitee line", () => {
+    expect(new Set(Object.values(THEMES).map((t) => t.accent)).size).toBe(3);
+    expect(THEMES.bestie.invitee).toBe("Thân gửi cốt :v");
+  });
+});
