@@ -41,8 +41,8 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
       <main className="relative z-10 grid place-items-center px-4 py-8 md:py-12">
         <article style={{ background: `${t.card}d9`, borderColor: t.accent }}
           className="card w-full max-w-[420px] md:max-w-5xl overflow-hidden rounded-3xl border shadow-2xl backdrop-blur md:grid md:grid-cols-2">
-          <div className="frame p-5 md:p-8">
-            <div style={{ borderColor: t.accent }} className="relative w-full aspect-[3/4] max-h-[70vh] md:max-h-none md:sticky md:top-8 rounded-2xl border-2 p-2">
+          <div className="frame p-5 md:p-8 md:flex">
+            <div style={{ borderColor: t.accent }} className="relative w-full aspect-[3/4] max-h-[70vh] md:aspect-auto md:max-h-none md:min-h-[520px] rounded-2xl border-2 p-2">
               <div className="relative h-full w-full overflow-hidden rounded-xl" style={{ background: t.bg }}>
                 {portrait ? (
                   <Image src={portrait} alt={`Ảnh cử nhân ${EVENT.host}`} fill priority sizes="(max-width: 768px) 90vw, 480px" className="object-cover" />

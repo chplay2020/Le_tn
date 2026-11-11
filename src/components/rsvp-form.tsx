@@ -14,7 +14,6 @@ export function RsvpForm({ code, tier, initial, closed }: Props) {
   const t = THEMES[tier];
   const [saved, setSaved] = useState(initial);
   const [status, setStatus] = useState<Status | null>(initial?.status ?? null);
-  const [wish, setWish] = useState(initial?.wish ?? "");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
 
@@ -23,7 +22,7 @@ export function RsvpForm({ code, tier, initial, closed }: Props) {
     setBusy(true); setMsg(null);
     try {
       const res = await fetch(`/api/invite/${code}/rsvp`, {
-        method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status, wish }),
+        method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) { setSaved({ status: data.status, wish: data.wish }); setMsg({ ok: true, text: "Đã lưu câu trả lời của bạn. Cảm ơn bạn!" }); }
@@ -36,7 +35,7 @@ export function RsvpForm({ code, tier, initial, closed }: Props) {
   const opt = (v: Status, text: string) => (
     <button type="button" aria-pressed={status === v} disabled={closed || busy} onClick={() => setStatus(v)}
       style={status === v ? { background: t.accent, color: t.card, borderColor: t.accent } : { borderColor: t.accent }}
-      className="flex-1 min-h-12 rounded-full border px-4 text-sm disabled:opacity-60">{text}</button>
+      className="flex-1 min-h-12 rounded-full border px-2 text-sm leading-tight disabled:opacity-60">{text}</button>
   );
 
   return (
@@ -46,14 +45,9 @@ export function RsvpForm({ code, tier, initial, closed }: Props) {
       {label && <p role="status" className="mt-2 text-center text-sm opacity-80">{label}</p>}
       {closed && <p className="mt-2 text-center text-sm">Đã hết hạn trả lời{saved ? "." : " – bạn vẫn có thể liên hệ trực tiếp với mình nhé."}</p>}
       <div className="mt-5 flex gap-3">{opt("yes", "Tham dự")}{opt("no", "Không tham dự")}</div>
-      <label className="mt-5 block text-sm">Lời chúc (tùy chọn)
-        <textarea value={wish} onChange={(e) => setWish(e.target.value)} maxLength={300} rows={3} disabled={closed || busy}
-          style={{ borderColor: t.accent, color: t.fg }} className="mt-1 w-full rounded-lg border bg-transparent p-3 text-base" />
-        <span className="block text-right text-xs opacity-60">{wish.length}/300</span>
-      </label>
       {!closed && (
         <button type="button" onClick={submit} disabled={!status || busy} style={{ background: t.accent, color: t.card }}
-          className="mt-3 w-full min-h-12 rounded-full text-sm disabled:opacity-50">{busy ? "Đang lưu…" : saved ? "Cập nhật" : "Gửi"}</button>
+          className="mt-5 w-full min-h-12 rounded-full text-sm disabled:opacity-50">{busy ? "Đang lưu…" : saved ? "Cập nhật" : "Gửi"}</button>
       )}
       {msg && <p role="status" className={`mt-3 text-center text-sm ${msg.ok ? "" : "font-medium"}`}>{msg.text}</p>}
     </section>
