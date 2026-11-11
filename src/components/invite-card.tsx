@@ -92,6 +92,11 @@ export function InviteCard({ name, tier, message, notes, afterParty, portrait, r
             </div>
             <p className="line mt-4 text-lg tracking-widest">{eventTimeText()}</p>
             <p className="line mt-5 text-sm"><span className="underline underline-offset-4">Địa điểm:</span> <span className="uppercase tracking-wider">{EVENT.venue}</span></p>
+            {EVENT.contacts.length > 0 && (
+              <p className="line mt-3 text-sm"><span className="underline underline-offset-4">Liên hệ:</span>{" "}
+                {EVENT.contacts.map((c, i) => (<span key={c.phone}>{i > 0 && " · "}<a href={`tel:${c.phone}`} className="tracking-wide">{c.phone.replace(/(\d{4})(\d{3})(\d{3,})/, "$1 $2 $3")} ({c.name})</a></span>))}
+              </p>
+            )}
             <div className="line mt-8"><Countdown /></div>
             <div className="line mt-6 flex flex-wrap justify-center gap-3">
               <a href={EVENT.mapUrl} target="_blank" rel="noopener noreferrer" style={{ background: t.accent, color: t.bg, borderColor: t.accent }} className={`${pill} font-medium`}>Xem bản đồ</a>

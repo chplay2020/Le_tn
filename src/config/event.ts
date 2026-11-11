@@ -9,6 +9,7 @@ export const EVENT = {
   endsAt: "2026-11-18T13:00:00+07:00",
   timezone: "Asia/Ho_Chi_Minh",
   defaultRsvpDeadline: "2026-11-17T23:59:59+07:00",
+  contacts: [{ name: "Thành", phone: "0987967379" }] as { name: string; phone: string }[],
   musicSrc: "" as string, // đặt đường dẫn mp3 (vd "/music.mp3") khi có file; trống thì ẩn nút nhạc
 } as const;
 
